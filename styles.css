@@ -15,3 +15,22 @@
     margin-top: 16px;
     font-size: small;
 }
+
+.homeTitle{
+    text-align: center;
+    margin-top: 28px;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+.paraBody{
+    text-align: center;
+    font-size: large;
+    text-decoration: underline;
+    text-decoration-color: chocolate;
+}
+
+span{
+    color: red;
+    font-weight: bolder;
+}

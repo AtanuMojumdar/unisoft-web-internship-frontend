@@ -5,6 +5,7 @@ const loginSubmitBtn = document.getElementById("loginSubmitBtn");
 
 
 submitbtn?.addEventListener("click", () => {
+    let success = false;
     fetch("http://localhost:8000/signup", {
         method: "POST",
         headers: {
@@ -19,15 +20,22 @@ submitbtn?.addEventListener("click", () => {
             return value.json()
         })
         .then((val) => {
-            console.log(val)
+            if (val.message == "success") {
+                success = true
+                window.localStorage.setItem("USERIN","TRUE")
+            }
         })
-        .catch((err)=>{
-            console.log("Error Occured:")
-            console.log(err)
+        
+        .then(() => {
+            if (success) {
+                window.location.href = "http://localhost:5500/home.html"
+
+            }
         })
 })
 
-loginSubmitBtn?.addEventListener("click",()=>{
+loginSubmitBtn?.addEventListener("click", () => {
+    let success = false;
     fetch("http://localhost:8000/login", {
         method: "POST",
         headers: {
@@ -42,10 +50,15 @@ loginSubmitBtn?.addEventListener("click",()=>{
             return value.json()
         })
         .then((val) => {
-            console.log(val)
+            if (val.message == "success") {
+                success = true
+                window.localStorage.setItem("USERIN","TRUE")
+            }
+
         })
-        .catch((err)=>{
-            console.log("Error Occured:")
-            console.log(err)
+        .then(() => {
+            if (success) {
+                window.location.href="http://localhost:5500/home.html"
+            }
         })
 })
